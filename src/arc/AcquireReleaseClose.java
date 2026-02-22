@@ -80,6 +80,9 @@ public sealed interface AcquireReleaseClose extends AutoCloseable {
         @Override
         public void acquire() {
             acquireCount.increment();
+            // above write to acquireCount Cell may have been reordered after below read of closingPhase if
+            // it was not for this fullFence that prevents this from happening
+            VarHandle.fullFence();
             int cp;
             while ((cp = closingPhase) != OPEN) {
                 if (cp == CLOSED) {
@@ -104,6 +107,9 @@ public sealed interface AcquireReleaseClose extends AutoCloseable {
                 }
                 Thread.onSpinWait();
             }
+            // above write to closingPhase may have been reordered after below reads of releaseCount and acquireCount cells if
+            // it was not for this fullFence that prevents this from happening
+            VarHandle.fullFence();
             // reading order is important: 1st RELEASE_COUNT, 2nd ACQUIRE_COUNT
             long value = -releaseCount.longValue() + acquireCount.longValue();
             if (value > 0) {
