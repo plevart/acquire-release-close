@@ -80,7 +80,7 @@ public sealed interface AcquireReleaseClose extends AutoCloseable {
         @Override
         public void acquire() {
             acquireCount.increment();
-            // above write to acquireCount Cell may have been reordered after below read of closingPhase if
+            // above write to acquireCount's Cell may have been reordered after below read of closingPhase if
             // it was not for this fullFence that prevents this from happening
             VarHandle.fullFence();
             int cp;

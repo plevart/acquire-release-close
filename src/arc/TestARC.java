@@ -23,7 +23,7 @@ public class TestARC implements AutoCloseable {
             testRun(cpus, loops, arc);
         }
         for (int i = 1; i <= measurements; i++) {
-            System.out.println("** " + arc.getClass().getSimpleName() + ", measure run #"  + i + "...");
+            System.out.println("** " + arc.getClass().getSimpleName() + ", measure run #" + i + "...");
             testRun(cpus, loops, arc);
         }
         System.out.println("** end.");
@@ -86,10 +86,12 @@ public class TestARC implements AutoCloseable {
         CompletableFuture.allOf(cfs).join();
         long ns = System.nanoTime() - t0;
 
-        System.out.println(
-            "concurrency: " + concurrency +
-                ", nanos: " + ns +
-                (referenceNs != null ? " (x " + ((double) ns / (double) referenceNs) + ")" : " (x 1.0)")
+        System.out.printf(
+            "concurrency: %3d, time: %12d ns, latency: %9.4f ns/op - (x %.4f)\n",
+            concurrency,
+            ns,
+            (double) ns / (double) loops,
+            referenceNs != null ? (double) ns / (double) referenceNs : 1.0
         );
 
         return ns;
