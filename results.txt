@@ -1,0 +1,39 @@
+** Simple, measure run #1...
+concurrency: 1, nanos: 39909697 (x 1.0)
+concurrency: 2, nanos: 164735444 (x 4.127704702944751)
+concurrency: 4, nanos: 394283724 (x 9.87939657873123)
+concurrency: 8, nanos: 672278915 (x 16.84500172978011)
+concurrency: 16, nanos: 2169282886 (x 54.3547821473062)
+** Simple, measure run #2...
+concurrency: 1, nanos: 40318379 (x 1.0)
+concurrency: 2, nanos: 163438657 (x 4.053701092496799)
+concurrency: 4, nanos: 399382210 (x 9.905710991009832)
+concurrency: 8, nanos: 694862623 (x 17.23438888750959)
+concurrency: 16, nanos: 2182386494 (x 54.12882531810121)
+** Simple, measure run #3...
+concurrency: 1, nanos: 39871197 (x 1.0)
+concurrency: 2, nanos: 168843686 (x 4.234728292707139)
+concurrency: 4, nanos: 375489497 (x 9.417562683156966)
+concurrency: 8, nanos: 675885694 (x 16.951728186138983)
+concurrency: 16, nanos: 2083500812 (x 52.255787856080666)
+** end.
+
+** Striped, measure run #1...
+concurrency: 1, nanos: 36698350 (x 1.0)
+concurrency: 2, nanos: 47349695 (x 1.290240433152989)
+concurrency: 4, nanos: 58622304 (x 1.5974098018030782)
+concurrency: 8, nanos: 60548173 (x 1.6498881557345222)
+concurrency: 16, nanos: 70607406 (x 1.9239940215295783)
+** Striped, measure run #2...
+concurrency: 1, nanos: 37217044 (x 1.0)
+concurrency: 2, nanos: 38610020 (x 1.0374284427317764)
+concurrency: 4, nanos: 39166893 (x 1.0523912914738742)
+concurrency: 8, nanos: 51778829 (x 1.3912665659314587)
+concurrency: 16, nanos: 70277394 (x 1.8883120862581133)
+** Striped, measure run #3...
+concurrency: 1, nanos: 37589735 (x 1.0)
+concurrency: 2, nanos: 38748261 (x 1.0308202758013592)
+concurrency: 4, nanos: 38656911 (x 1.0283900910714054)
+concurrency: 8, nanos: 40530711 (x 1.0782388064188269)
+concurrency: 16, nanos: 52545852 (x 1.3978776918751887)
+** end.
